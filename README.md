@@ -1,2 +1,2 @@
-# c64-training
-For personal training purposes for writing C64 code in assembler.
+# C64 Training
+For personal training purposes when writing Commodore 64 programs/games in assembler.
