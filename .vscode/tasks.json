@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build C64 VICE",
+            "type": "shell",
+            "linux": {
+                "command": "acme -f cbm -o ${fileBasenameNoExtension}.prg ${fileBasenameNoExtension}.asm && x64 ${fileDirname}/${fileBasenameNoExtension}.prg 2> /dev/null"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+    ]
+}

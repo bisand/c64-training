@@ -1,0 +1,16 @@
+
+al C:d000 .v
+
+al C:08b8 .done
+al C:0872 .irq
+al C:08d2 .spry
+al C:08d0 .sprx
+al C:082a .clean
+al C:0834 .build
+al C:0886 .down
+al C:08d3 .data
+al C:0890 .left
+al C:089f .right
+al C:0801 .sysline
+al C:087c .up
+al C:08ae .fire
