@@ -1,14 +1,11 @@
-        ; --------------------------------
-        ; JCH, DMC, Whatever IRQ music plr
-        ; ================================
-        * = $0801
+* = $0801
 
 sysline:
         !byte $0b,$08,$01,$00,$9e,$32,$30,$36,$31,$00,$00,$00 ; = SYS 2061
 
         v = $d000
 
-        * = $080d                                             ; =2061 (Instead of $0810 as in Richards example
+* = $080d                                             ; =2061 (Instead of $0810 as in Richards example
                                                               ; not to waste unnecessary bytes)
         lda #3
         sta $d020                       ; Set background color
