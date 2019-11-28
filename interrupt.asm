@@ -104,17 +104,24 @@ irq
                     ;will only fail on hardware like c65 or supercpu. c64dtv is ok with this though.
 
 ; Start interrupt code
-
+        i = $02
 up
         lda $DC00
         and #$1
         bne down
-        dec spry
+        lda spry
+        sec
+        sbc #i
+        sta spry
 down
         lda $DC00
         and #$2
         bne left
-        inc spry
+        lda spry
+        clc
+        adc #i
+        sta spry
+        ;inc spry
 left
         lda $DC00
         and #$4
