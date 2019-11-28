@@ -11,51 +11,51 @@
 ; $0 = end of line
 ; $00 $00 = 2-byte pointer to the next line of BASIC code ($0000 = end of program)
 
-	!byte $0C,$08,$0A,$00,$9E,$20
-	!byte $34,$30,$39,$36,$00,$00,$00
+  !byte $0C,$08,$0A,$00,$9E,$20
+  !byte $34,$30,$39,$36,$00,$00,$00
 
 ; real start of program $1000 = 4096
 *=$1000
-	
+  
 rasterline = $80
 
 start:
-	jsr $e544
+  jsr $e544
 
 loop:
-	lda #$03
-	sta $d020
-	sta $d021
+  lda #$03
+  sta $d020
+  sta $d021
 
-	ldx #$00
+  ldx #$00
 
 drawText:
-	lda text,x
-	sta $0400+40*12,x
-	inx
-	cpx #40
-	bne drawText
+  lda text,x
+  sta $0400+40*12,x
+  inx
+  cpx #40
+  bne drawText
 
-	ldx 5
-	stx 53280
+  ldx 5
+  stx 53280
 
-	jsr WaitFrame
+  jsr WaitFrame
 
-	inx
-	stx 53280
+  inx
+  stx 53280
 
-	jmp loop
+  jmp loop
 
 WaitFrame:
-	lda $d012
-	cmp #$F8
-	beq WaitFrame
+  lda $d012
+  cmp #$F8
+  beq WaitFrame
 
 .WaitStep2:
-	lda $d012
-	cmp #$F8
-	bne .WaitStep2
-	rts
+  lda $d012
+  cmp #$F8
+  bne .WaitStep2
+  rts
 
 text:
-	!scr "              hello world               "
+  !scr "              hello world               "
